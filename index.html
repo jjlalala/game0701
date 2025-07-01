@@ -9,6 +9,7 @@
 <body>
   <div class="container">
     <h1>SW計畫・解密0701</h1>
+    <p class="intro">你來到的是一間早已停辦的廢棄校園。十年前的 SW-0713 實驗在此失控，留下未解之謎。你是否準備好啟動 0701 守命人，面對真相？</p>
     <div id="output" class="dialogue"></div>
     <input type="text" id="input" placeholder="輸入關鍵字或代碼..." autofocus />
     <button id="submit">送出</button>
@@ -18,6 +19,11 @@
       <source src="bgm.mp3" type="audio/mpeg">
     </audio>
     <button id="muteToggle">🔇</button>
+
+    <!-- Typing Sound -->
+    <audio id="typeSound">
+      <source src="type.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Video overlay -->
     <div id="videoOverlay" class="overlay hidden">

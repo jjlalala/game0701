@@ -4,6 +4,7 @@ const output = document.getElementById('output');
 const bgm = document.getElementById('bgm');
 const muteBtn = document.getElementById('muteToggle');
 const videoOverlay = document.getElementById('videoOverlay');
+const typeSound = document.getElementById('typeSound');
 
 let decodeStage = 0;
 let muted = false;
@@ -16,6 +17,10 @@ function typeText(text, prefix = "0701：") {
   const interval = setInterval(() => {
     p.textContent += fullText[i];
     i++;
+    if (typeSound && !typeSound.muted) {
+      typeSound.currentTime = 0;
+      typeSound.play();
+    }
     if (i >= fullText.length) clearInterval(interval);
     output.scrollTop = output.scrollHeight;
   }, 30);
@@ -57,15 +62,19 @@ button.addEventListener('click', () => {
     input.value = '';
   }
 });
-
 input.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    button.click();
-  }
+  if (e.key === 'Enter') button.click();
 });
 
 muteBtn.addEventListener('click', () => {
   muted = !muted;
   bgm.muted = muted;
+  typeSound.muted = muted;
   muteBtn.textContent = muted ? '🔈' : '🔇';
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  typeText("記錄裝置重啟中……識別殘留意識。");
+  typeText("這裡是SW-0713事件最後留下的紀錄。你……終於來了嗎？");
+  typeText("請輸入關鍵字開始解碼。");
 });
