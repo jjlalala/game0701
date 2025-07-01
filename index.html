@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SW計畫・解密0701</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>SW計畫・解密0701</h1>
-    <div id="intro" class="story">
-      <p>十年前的那晚，校園消失了一棟建築物。</p>
-      <p>沒有人知道發生了什麼。</p>
-      <p>傳說，是一場名為「SW計畫」的復活實驗，引發了 AI 的覺醒與崩壞。</p>
-      <p>泡泡學姊、TJ博士、研究大樓，全都從監控與記錄中抹去。</p>
-      <p>而你，作為一名調查員，將潛入這座廢棄的校園，啟動僅存的 AI──<strong>0701守命人</strong>。</p>
-      <p>如果你夠聰明，就能破解實驗背後的代碼與真相。</p>
-      <button id="startButton">▶️ 啟動 0701 守命人</button>
-    </div>
-    <div id="game" class="story hidden">
-      <p>連線中...</p>
+    <div id="output" class="dialogue"></div>
+    <input type="text" id="input" placeholder="輸入關鍵字或代碼..." autofocus />
+    <button id="submit">送出</button>
+
+    <!-- Music Controls -->
+    <audio id="bgm" loop autoplay>
+      <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+    <button id="muteToggle">🔇</button>
+
+    <!-- Video overlay -->
+    <div id="videoOverlay" class="overlay hidden">
+      <div class="videoWrapper">
+        <video id="endingVideo" controls autoplay>
+          <source src="cake_fireworks.mp4" type="video/mp4">
+          您的瀏覽器不支援影片播放。
+        </video>
+        <p class="videoMessage">🎉 代碼確認……生日紀錄回收完畢。</p>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
